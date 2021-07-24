@@ -1,5 +1,6 @@
 import { Dispatch } from "./dispatch";
 
 export class Action<T>{
-    protected setState: Dispatch<T> = ()=>{};
+    public setState: Dispatch<T> = ()=>{};
+    protected use(){};
 }

@@ -12,6 +12,9 @@ export function ContextProvider<ActionT extends Action<State>, State>(context: a
         //@ts-ignore
         action.setState = dispatch;
 
+        //@ts-ignore
+        states.use();
+
         return <context.Provider {...props} value={[states, action]} />
     }
 }

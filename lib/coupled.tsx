@@ -35,7 +35,10 @@ export function ContextProvider<Action, State>(context: any, state: State, actio
         }
 
         //@ts-ignore
-        states.setState = setState
+        states.setState = setState;
+        
+        //@ts-ignore
+        states.use();
 
         return <context.Provider {...props} value={states} />
     }
