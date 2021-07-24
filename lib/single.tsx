@@ -1,18 +1,11 @@
 
-import React, { createContext, ReactNode, useState, useContext } from "react";
+import React, { createContext, ReactNode, useContext } from "react";
+import { useState } from "./useState";
 import { Action } from './action';
 
 export function ContextProvider<State extends Action<State>>(context: any, state: State) {
     return function ProjectsContextProvider(props: { value?: State }) {
-        const [states, dispatch] = useState(props.value || state);     
-        //@ts-ignore
-        states.__proto__ = state.__proto__;
-        //@ts-ignore
-        states.setState = dispatch;
-
-        //@ts-ignore
-        states.use();
-
+        const states = useState(props.value || state);     
         return <context.Provider {...props} value={states} />
     }
 }
