@@ -1,6 +1,6 @@
 {
   "name": "classy-state",
-  "version": "1.1.3",
+  "version": "1.1.5",
   "description": "A package that allows classes to be use in useState and useContext",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

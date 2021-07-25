@@ -13,9 +13,12 @@ export class Person extends Action {
 
     setName(name: string) {
         console.log(name)
-        this.setState({ ...this, name })
+        this.setState((prev:any)=>{return{ ...prev, name}})
+        this.setState({ ...this, name})
     }
 }
+
+
 
 //A list of people
 export class People extends Action {
@@ -23,17 +26,7 @@ export class People extends Action {
 
     init() {
         //have to assign each person their own setState function manually
-        this.people.forEach((person, index) => {
-            person.setState = this.setStateForPerson(index);
-        })
-    }
-
-    //create a custom setState for each person based on index
-    setStateForPerson(index: number) {
-        return (e: any) => {
-            Object.assign(this.people[index], e)
-            this.setState({ ...this })
-        }
+        this.applySetStateToList(this.people);
     }
 
     setPeople(people: Person[]) {
