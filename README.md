@@ -30,7 +30,7 @@ export class Counter extends Action<Counter> {
 
 
 // use it as a simple state
-function ComponentContext(){
+function Component(){
     const counter = useStateClass(new Counter());
     return ( ... )
 }
@@ -39,16 +39,16 @@ function ComponentContext(){
 //use it in context
 const CounterContext = createContext(new Counter());
 
-function ComponentContext(){
+function Component(){
     const counter = useStateClass(new Counter());
     return (
         <CounterContext.Provider value={counter}>
-            <Child/>
+            <ChildComponent/>
         <CounterContext.Provider>
     )
 }
 
-function Child(){
+function ChildComponent(){
     const counter = useContextClass(CounterContexts);
     return ( ... )
 }
